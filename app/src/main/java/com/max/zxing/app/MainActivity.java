@@ -52,7 +52,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkCameraPermissions() {
         rxPermissions = new RxPermissions(this);
-        rxPermissions.request(Manifest.permission.CAMERA);
+        rxPermissions.request(Manifest.permission.CAMERA).subscribe(
+                grant ->{
+                    if (grant){
+                        // 同意
+                    }else {
+                        //拒绝
+                    }
+                }
+        );
 
     }
 
@@ -65,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View v) {
         startScan();
-
 
     }
 }

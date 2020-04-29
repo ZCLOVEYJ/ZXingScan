@@ -110,7 +110,7 @@ public class CaptureHandler extends Handler implements ResultPointCallback {
                    Collection<BarcodeFormat> decodeFormats,
                    Map<DecodeHintType, Object> baseHints,
                    String characterSet,
-                   CameraManager cameraManager,SurfaceView surfaceView) {
+                   CameraManager cameraManager, SurfaceView surfaceView) {
         this.activity = activity;
         this.viewfinderView = viewfinderView;
         this.onCaptureListener = onCaptureListener;
@@ -241,10 +241,19 @@ public class CaptureHandler extends Handler implements ResultPointCallback {
         isReturnBitmap = returnBitmap;
     }
 
+    /**
+     * @return 是否支持自动缩放
+     */
     public boolean isSupportAutoZoom() {
         return isSupportAutoZoom;
     }
 
+    /**
+     * 设置是否支持自动缩放
+     *
+     * @param supportAutoZoom true 支持
+     *                        false 不支持
+     */
     public void setSupportAutoZoom(boolean supportAutoZoom) {
         isSupportAutoZoom = supportAutoZoom;
     }

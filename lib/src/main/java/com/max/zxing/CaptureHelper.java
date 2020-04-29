@@ -222,8 +222,9 @@ public class CaptureHelper implements CaptureLifecycle, CaptureTouchEvent, Captu
 
     @Override
     public void onResume() {
+        // 声音管理器
         beepManager.updatePrefs();
-
+        // activity 管理器
         inactivityTimer.onResume();
 
         if (hasSurface) {
@@ -342,7 +343,7 @@ public class CaptureHelper implements CaptureLifecycle, CaptureTouchEvent, Captu
             cameraManager.openDriver(surfaceHolder);
             // Creating the handler starts the preview, which can also throw a RuntimeException.
             if (captureHandler == null) {
-                captureHandler = new CaptureHandler(activity, viewfinderView, onCaptureListener, decodeFormats, decodeHints, characterSet, cameraManager,surfaceView);
+                captureHandler = new CaptureHandler(activity, viewfinderView, onCaptureListener, decodeFormats, decodeHints, characterSet, cameraManager, surfaceView);
 //                captureHandler.setSurfaceHolderTransform(surfaceView);
                 captureHandler.setSupportVerticalCode(isSupportVerticalCode);
                 captureHandler.setReturnBitmap(isReturnBitmap);

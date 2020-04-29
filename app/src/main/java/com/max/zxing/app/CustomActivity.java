@@ -54,18 +54,19 @@ public class CustomActivity extends AppCompatActivity implements OnCaptureCallba
         mCaptureHelper = new CaptureHelper(this, mSurfaceView, mViewfinderView, mIvTorch);
         mCaptureHelper.setOnCaptureCallback(this);
         mCaptureHelper.onCreate();
-        mCaptureHelper.vibrate(true)
-                //全屏扫码
-                .fullScreenScan(true)
-                .supportAutoZoom(true)
-                .autoRestartPreviewAndDecode(true)
+        mCaptureHelper
+                .vibrate(true)
+                //全屏扫码 全局扫描 减速
+                .fullScreenScan(false)
                 .framingRectRatio(0.625f)
-                .supportAutoZoom(true)
-                .returnBitmap(true)
+                //这个并不会对扫描速度有什么影响
+                .supportAutoZoom(false)
                 //支持扫垂直条码，建议有此需求时才使用
                 .supportVerticalCode(false)
                 //是否支持识别反色码（黑白反色的码），增加识别率
                 .supportLuminanceInvert(true)
+                .autoRestartPreviewAndDecode(true)
+                .returnBitmap(true)
                 .continuousScan(false);
 
     }
